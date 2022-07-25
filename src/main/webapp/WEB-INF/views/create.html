@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"><head>
+    <meta charset="UTF-8">
+    <title>Create</title>
+</head>
+<body>
+<table>
+   <tr>
+       <th>Tên Blog</th>
+       <th>Sunmary</th>
+       <th>Nội dung Blog</th>
+       <th>Ảnh</th>
+       <th>Create</th>
+   </tr>
+    <tr>
+<form th:object="${blog}" enctype="multipart/form-data" method="post">
+    <td><input type="text" th:field="*{nameBlog}" ></td>
+    <td><input type="text" th:field="*{summary}" ></td>
+    <td><input type="text" th:field="*{blog}" ></td>
+    <td><input type="file" name="upimage"  ></td>
+    <td><button type="submit"> Create</button></td>
+</form>
+    </tr>
+    <tr><td style="color: red" th:if="${#fields.hasErrors('nameBlog')}" th:errors="${blog.getNameBlog()}"></td></tr>
+</table>
+</body>
+</html>
